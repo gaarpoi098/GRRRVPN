@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    color: white;
+    overflow-x: hidden;
+}
+
+/* 🌈 переливающийся фон */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+        #0b0f1f,
+        #1b0c18,
+        #2a0d14,
+        #120b1f);
+    background-size: 600% 600%;
+    animation: bgmove 20s ease infinite;
+    z-index: -4;
+}
+
+@keyframes bgmove {
+    0%{background-position:0%}
+    50%{background-position:100%}
+    100%{background-position:0%}
+}
+
+/* canvas слои */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -3;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.3);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff3b3b;
+    text-shadow: 0 0 18px #ff3b3b;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: white;
+    transition: .25s;
+}
+
+nav a:hover {
+    color: #ff3b3b;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 160px 20px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    text-shadow: 0 0 30px #ff3b3b;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 16px 34px;
+    border-radius: 14px;
+    background: #ff3b3b;
+    box-shadow: 0 0 25px #ff3b3b;
+    transition: .3s;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* ТАРИФЫ */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 25px;
+    padding: 60px;
+}
+
+.card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(16px);
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card.active {
+    box-shadow: 0 0 30px #ff3b3b;
+    border: 2px solid #ff3b3b;
+}
+
+.price {
+    font-size: 22px;
+    color: #ff3b3b;
+    margin-top: 10px;
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 1100px;
+    margin: auto;
+}
+
+footer {
+    padding: 40px;
+    text-align: center;
+    opacity: .6;
+}
